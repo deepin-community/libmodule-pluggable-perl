@@ -1,15 +1,25 @@
-Source: template-repository
-Section: unknown
+Source: libmodule-pluggable-perl
+Section: perl
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Uploaders: gregor herrmann <gregoa@debian.org>
+Build-Depends: debhelper-compat (= 13),
+               libapp-fatpacker-perl,
+               libmodule-runtime-perl
+Build-Depends-Indep: perl
+Standards-Version: 3.9.6
+Vcs-Browser: https://salsa.debian.org/perl-team/modules/packages/libmodule-pluggable-perl
+Vcs-Git: https://salsa.debian.org/perl-team/modules/packages/libmodule-pluggable-perl.git
+Homepage: https://metacpan.org/release/Module-Pluggable
+Testsuite: autopkgtest-pkg-perl
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: libmodule-pluggable-perl
+Architecture: all
+Depends: ${misc:Depends}, ${perl:Depends}
+Recommends: libmodule-runtime-perl
+Multi-Arch: foreign
+Description: module for giving  modules the ability to have plugins
+ Module::Pluggable provides a simple but, hopefully, extensible way of having
+ 'plugins' for your module. Essentially all it does is export a method into
+ your namespace that looks through a search path for .pm files and turn those
+ into class names. Optionally it instantiates those classes for you.
